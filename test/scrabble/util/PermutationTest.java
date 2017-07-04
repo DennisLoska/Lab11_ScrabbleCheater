@@ -1,6 +1,7 @@
 package scrabble.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -35,14 +36,21 @@ public class PermutationTest {
 
 	@Test
 	public void testEquals1() {
-		assertTrue((new Permutation("aaabbrr")).equals(new Permutation(
-				"barbara")));
+		assertTrue((new Permutation("abenr")).equals(new Permutation(
+				"barne")));
 	}
 
 	@Test
 	public void testEquals2() {
-
-		assertEquals(new Permutation("berlin"), new Permutation("linber"));
+		assertTrue(new Permutation("berlin").equals(new Permutation("linber")));
+	}
+	@Test
+	public void testEqual3() {
+		assertFalse(new Permutation("berlin").equals(new Permutation("linper")));
+	}
+	@Test
+	public void testEqualsOtherType() {
+		assertFalse(new Permutation("berlin").equals(new Integer(42)));
 	}
 
 	@Test

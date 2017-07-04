@@ -16,7 +16,7 @@ public interface WordList {
 	 * @param tileRackPart
 	 * @return
 	 */
-	Set<String> permutations(String tileRackPart);
+	Set<String> validWordsUsingAllTiles(String tileRackPart);
 
 	/**
 	 * returns all words that can be build with the tileRack, that is,
@@ -25,7 +25,7 @@ public interface WordList {
 	 * @param tileRack
 	 * @return
 	 */
-	Set<String> words(String tileRack);
+	Set<String> allValidWords(String tileRack);
 
 	/**
 	 * adds a single word to the word list

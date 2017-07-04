@@ -8,13 +8,14 @@ public class Permutation {
 
 	@Override
 	public int hashCode() {
-		return getNormalized().hashCode();
+		// TBD: implement this method
+		return 0;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		//TBD: Implement equals method
 		return false;
-
 	}
 
 	@Override
@@ -23,14 +24,17 @@ public class Permutation {
 	}
 
 	public String getNormalized() {
+		// TBD: implement this method
 		return null;
 	}
 
 	public String getWord() {
+		// TBD: implement this method
 		return null;
 	}
 
 	public int length() {
+		// TBD: implement this method
 		return 0;
 	}
 
