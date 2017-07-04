@@ -5,6 +5,10 @@ import java.util.Set;
 
 public class SimpleWordList implements WordList {
 
+	public static void main(String[] args){
+		System.out.println("Hi");
+	}
+
 	@Override
 	public Set<String> permutations(String tileRackPart) {
 		// TODO Auto-generated method stub
