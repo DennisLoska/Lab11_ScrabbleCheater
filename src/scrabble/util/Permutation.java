@@ -1,41 +1,55 @@
 package scrabble.util;
 
 
+import java.util.Arrays;
+
 public class Permutation {
 
-	public Permutation(String word) {
-	}
+    private String word;
+    private byte[] bytes;
 
-	@Override
-	public int hashCode() {
-		// TBD: implement this method
-		return 0;
-	}
+    public Permutation(String word) {
+        this.word = word;
+        bytes = word.getBytes();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		//TBD: Implement equals method
-		return false;
-	}
+    @Override
+    public int hashCode() {
+        int sum = 0;
+        for (Byte b : bytes) {
+            sum += b;
+        }
+        return sum;
+    }
 
-	@Override
-	public String toString() {
-		return getWord() + " / " + getNormalized();
-	}
+    @Override
+    public boolean equals(Object obj) {
+        return this.hashCode() == obj.hashCode();
+    }
 
-	public String getNormalized() {
-		// TBD: implement this method
-		return null;
-	}
+    @Override
+    public String toString() {
+        return getWord() + " / " + getNormalized();
+    }
 
-	public String getWord() {
-		// TBD: implement this method
-		return null;
-	}
+    public String getNormalized() {
+        Arrays.sort(bytes);
+        StringBuilder sb = new StringBuilder();
 
-	public int length() {
-		// TBD: implement this method
-		return 0;
-	}
+        for (byte b : bytes){
+            sb.append((char)b);
+        }
+
+        return sb.toString();
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public int length() {
+        // TBD: implement this method
+        return bytes.length;
+    }
 
 }

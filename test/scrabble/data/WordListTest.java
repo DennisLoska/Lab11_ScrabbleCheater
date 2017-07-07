@@ -78,8 +78,7 @@ public class WordListTest {
 
 	@Test
 	public void shouldReturnCorrectAmountOfPermutations() {
-		assertEquals(message, permutationCount, wl.validWordsUsingAllTiles(tileRack)
-				.size());
+		assertEquals(message, permutationCount, wl.validWordsUsingAllTiles(tileRack).size());
 	}
 
 	/**
