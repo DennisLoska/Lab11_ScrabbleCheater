@@ -24,9 +24,9 @@ public class PermutationUtilities {
         Random rand = new Random();
 
 	    for (int i = 0; i < length; i++){
-			sb.append(chars[rand.nextInt(chars.length)]);
+			sb.append((char) chars[rand.nextInt(chars.length)]);
 		}
-        System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         return sb.toString();
 	}
 
@@ -42,10 +42,10 @@ public class PermutationUtilities {
         }
 
         for (byte b : newPermutation){
-            sb.append(b);
+            sb.append((char) b);
         }
 
-        System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         return sb.toString();
     }
 }
