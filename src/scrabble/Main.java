@@ -1,8 +1,6 @@
 package scrabble;
 
 import scrabble.data.SimpleWordList;
-
-import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 

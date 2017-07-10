@@ -13,7 +13,7 @@ public class SimpleWordList implements WordList {
     private HashMap<String, String> scrabbleWords = new HashMap<>();
     private int size = 0;
 
-    public static void main(String[]args){
+    public static void main(String[] args) {
         SimpleWordList swl = new SimpleWordList();
         swl.initFromFile("wordlists/sowpods.txt");
 
@@ -29,8 +29,8 @@ public class SimpleWordList implements WordList {
         HashSet<String> foundPerms = new HashSet<>();
 
         Permutation permToBeChecked = new Permutation(tileRackPart);
-        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
-            if (entry.getKey().equals(permToBeChecked.getNormalized())){
+        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()) {
+            if (entry.getKey().equals(permToBeChecked.getNormalized())) {
                 foundPerms.add(entry.getValue());
             }
         }
