@@ -6,29 +6,37 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SimpleWordList implements WordList {
 
-    private HashSet<String> scrabbleWords = new HashSet<>();
+//    private HashSet<String> scrabbleWords = new HashSet<>();
+    private HashMap<String, String> scrabbleWords = new HashMap<>();
+    private int size = 0;
 
     @Override
     public Set<String> validWordsUsingAllTiles(String tileRackPart) {
 
         HashSet<String> foundPerms = new HashSet<>();
 
-        Permutation permToBeChecked = new Permutation(tileRackPart);
-        String permToBeCheckedString = permToBeChecked.getNormalized();
-        for (String scrabbleWord : scrabbleWords) {
-            Permutation temp = new Permutation(scrabbleWord);
-            String scrabbleString = temp.getNormalized();
+//        Permutation permToBeChecked = new Permutation(tileRackPart);
+//        String permToBeCheckedString = permToBeChecked.getNormalized();
+//        for (String scrabbleWord : scrabbleWords) {
+//            Permutation temp = new Permutation(scrabbleWord);
+//            String scrabbleString = temp.getNormalized();
+//
+//            if (scrabbleString.equals(permToBeCheckedString)) {
+//                foundPerms.add(temp.getWord());
+//            }
+//        }
 
-            if (scrabbleString.equals(permToBeCheckedString)) {
-                foundPerms.add(temp.getWord());
+        Permutation permToBeChecked = new Permutation(tileRackPart);
+        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
+            if (permToBeChecked.getNormalized().equals(entry.getKey())){
+                foundPerms.add(permToBeChecked.getWord());
             }
         }
+
 
         return foundPerms;
     }
@@ -41,10 +49,12 @@ public class SimpleWordList implements WordList {
 
     @Override
     public boolean add(String word) {
+        Permutation perm = new Permutation(word);
         if (word == null) {
             return false;
         } else {
-            scrabbleWords.add(word);
+            scrabbleWords.put(perm.getNormalized(), perm.getWord());
+            size++;
             return true;
         }
     }
@@ -63,7 +73,7 @@ public class SimpleWordList implements WordList {
 
     @Override
     public int size() {
-        return scrabbleWords.size();
+        return size;
     }
 
     @Override
