@@ -32,8 +32,8 @@ public class SimpleWordList implements WordList {
 
         Permutation permToBeChecked = new Permutation(tileRackPart);
         for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
-            if (permToBeChecked.getNormalized().equals(entry.getKey())){
-                foundPerms.add(permToBeChecked.getWord());
+            if (entry.getKey().equals(permToBeChecked.getNormalized())){
+                foundPerms.add(entry.getValue());
             }
         }
 
