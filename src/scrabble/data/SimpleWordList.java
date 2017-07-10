@@ -10,25 +10,12 @@ import java.util.*;
 
 public class SimpleWordList implements WordList {
 
-//    private HashSet<String> scrabbleWords = new HashSet<>();
     private HashMap<String, String> scrabbleWords = new HashMap<>();
     private int size = 0;
 
     @Override
     public Set<String> validWordsUsingAllTiles(String tileRackPart) {
-
         HashSet<String> foundPerms = new HashSet<>();
-
-//        Permutation permToBeChecked = new Permutation(tileRackPart);
-//        String permToBeCheckedString = permToBeChecked.getNormalized();
-//        for (String scrabbleWord : scrabbleWords) {
-//            Permutation temp = new Permutation(scrabbleWord);
-//            String scrabbleString = temp.getNormalized();
-//
-//            if (scrabbleString.equals(permToBeCheckedString)) {
-//                foundPerms.add(temp.getWord());
-//            }
-//        }
 
         Permutation permToBeChecked = new Permutation(tileRackPart);
         for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
@@ -36,7 +23,6 @@ public class SimpleWordList implements WordList {
                 foundPerms.add(entry.getValue());
             }
         }
-
 
         return foundPerms;
     }
@@ -95,5 +81,4 @@ public class SimpleWordList implements WordList {
         }
         return this;
     }
-
 }
