@@ -10,29 +10,27 @@ import java.util.*;
 
 public class SimpleWordList implements WordList {
 
-    //    private HashSet<String> scrabbleWords = new HashSet<>();
     private HashMap<String, String> scrabbleWords = new HashMap<>();
     private int size = 0;
 
+    public static void main(String[]args){
+        SimpleWordList swl = new SimpleWordList();
+        swl.initFromFile("wordlists/sowpods.txt");
+
+        System.out.println("Please type your Word:");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+        System.out.println(swl.validWordsUsingAllTiles(input).toString());
+
+    }
+
     @Override
     public Set<String> validWordsUsingAllTiles(String tileRackPart) {
-
         HashSet<String> foundPerms = new HashSet<>();
 
-//        Permutation permToBeChecked = new Permutation(tileRackPart);
-//        String permToBeCheckedString = permToBeChecked.getNormalized();
-//        for (String scrabbleWord : scrabbleWords) {
-//            Permutation temp = new Permutation(scrabbleWord);
-//            String scrabbleString = temp.getNormalized();
-//
-//            if (scrabbleString.equals(permToBeCheckedString)) {
-//                foundPerms.add(temp.getWord());
-//            }
-//        }
-
         Permutation permToBeChecked = new Permutation(tileRackPart);
-        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()) {
-            if (entry.getKey().equals(permToBeChecked.getNormalized())) {
+        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
+            if (entry.getKey().equals(permToBeChecked.getNormalized())){
                 foundPerms.add(entry.getValue());
             }
         }
@@ -94,5 +92,4 @@ public class SimpleWordList implements WordList {
         }
         return this;
     }
-
 }

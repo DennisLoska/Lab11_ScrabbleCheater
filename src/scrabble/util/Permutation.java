@@ -24,7 +24,6 @@ public class Permutation {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Permutation)) return false;
         Permutation casted = (Permutation) obj;
         return this.hashCode() == casted.hashCode();
     }
@@ -60,7 +59,6 @@ public class Permutation {
     }
 
     public int length() {
-        // TBD: implement this method
         return bytes.length;
     }
 
