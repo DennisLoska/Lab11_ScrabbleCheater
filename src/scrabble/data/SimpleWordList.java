@@ -10,7 +10,7 @@ import java.util.*;
 
 public class SimpleWordList implements WordList {
 
-//    private HashSet<String> scrabbleWords = new HashSet<>();
+    //    private HashSet<String> scrabbleWords = new HashSet<>();
     private HashMap<String, String> scrabbleWords = new HashMap<>();
     private int size = 0;
 
@@ -31,12 +31,11 @@ public class SimpleWordList implements WordList {
 //        }
 
         Permutation permToBeChecked = new Permutation(tileRackPart);
-        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()){
-            if (entry.getKey().equals(permToBeChecked.getNormalized())){
+        for (Map.Entry<String, String> entry : scrabbleWords.entrySet()) {
+            if (entry.getKey().equals(permToBeChecked.getNormalized())) {
                 foundPerms.add(entry.getValue());
             }
         }
-
 
         return foundPerms;
     }

@@ -45,6 +45,16 @@ public class Permutation {
         return sb.toString();
     }
 
+    public String getNormalizedReversed() {
+        Arrays.sort(bytes);
+        StringBuilder sb = new StringBuilder();
+
+        for (byte b : bytes) {
+            sb.append((char) b);
+        }
+        return sb.reverse().toString();
+    }
+
     public String getWord() {
         return word;
     }
