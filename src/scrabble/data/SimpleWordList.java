@@ -13,6 +13,17 @@ public class SimpleWordList implements WordList {
     private HashMap<String, String> scrabbleWords = new HashMap<>();
     private int size = 0;
 
+    public static void main(String[]args){
+        SimpleWordList swl = new SimpleWordList();
+        swl.initFromFile("wordlists/sowpods.txt");
+
+        System.out.println("Please type your Word:");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+        System.out.println(swl.validWordsUsingAllTiles(input).toString());
+
+    }
+
     @Override
     public Set<String> validWordsUsingAllTiles(String tileRackPart) {
         HashSet<String> foundPerms = new HashSet<>();
