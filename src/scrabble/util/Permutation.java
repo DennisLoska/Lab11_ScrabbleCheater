@@ -24,7 +24,9 @@ public class Permutation {
 
     @Override
     public boolean equals(Object obj) {
-        return this.hashCode() == obj.hashCode();
+        if (!(obj instanceof Permutation)) return false;
+        Permutation casted = (Permutation) obj;
+        return this.hashCode() == casted.hashCode();
     }
 
     @Override
@@ -36,8 +38,8 @@ public class Permutation {
         Arrays.sort(bytes);
         StringBuilder sb = new StringBuilder();
 
-        for (byte b : bytes){
-            sb.append((char)b);
+        for (byte b : bytes) {
+            sb.append((char) b);
         }
 
         return sb.toString();

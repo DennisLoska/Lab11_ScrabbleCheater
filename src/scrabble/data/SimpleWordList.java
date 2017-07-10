@@ -12,12 +12,25 @@ import java.util.Set;
 
 public class SimpleWordList implements WordList {
 
-    HashSet<String> words = new HashSet<>();
+    private HashSet<String> scrabbleWords = new HashSet<>();
 
     @Override
     public Set<String> validWordsUsingAllTiles(String tileRackPart) {
-        // TODO Auto-generated method stub
-        return null;
+
+        HashSet<String> foundPerms = new HashSet<>();
+
+        Permutation permToBeChecked = new Permutation(tileRackPart);
+        String permToBeCheckedString = permToBeChecked.getNormalized();
+        for (String scrabbleWord : scrabbleWords) {
+            Permutation temp = new Permutation(scrabbleWord);
+            String scrabbleString = temp.getNormalized();
+
+            if (scrabbleString.equals(permToBeCheckedString)) {
+                foundPerms.add(temp.getWord());
+            }
+        }
+
+        return foundPerms;
     }
 
     @Override
@@ -31,7 +44,7 @@ public class SimpleWordList implements WordList {
         if (word == null) {
             return false;
         } else {
-            words.add(word);
+            scrabbleWords.add(word);
             return true;
         }
     }
@@ -50,7 +63,7 @@ public class SimpleWordList implements WordList {
 
     @Override
     public int size() {
-        return words.size();
+        return scrabbleWords.size();
     }
 
     @Override
